@@ -21,3 +21,11 @@ Ganache must be opened
 4. Resolve conflits if needed
 5. Merge with master
 6. Delete branch
+
+### Owners
+
+- Maulem
+- Mariana Borst
+- Leonardo Baran
+- João Marcelo
+- João Pedro Meirelles
