@@ -7,11 +7,37 @@
 - Ganache
 ## Running
 
-Ganache must be opened
+#### Ganache must be opened
 
-``` $ truffle compile ```
+``` $ truffle develop ```
 
-``` $ truffle console ```
+``` compile ```
+
+### Criar contrato simples:
+
+Inicia o contrato
+
+``` let simple = await DocumentSignSimple.new({Endereço do signatario},web3.utils.asciiToHex('{CID do IPFS}'),{from:{Endereço do cartorio}}) ```
+
+Assinar (apenas o signarário consegue)
+
+``` simple.sign({from:{Endereço do signatario}}) ```
+
+Bater um CID com o guardado (qualquer um consegue)
+
+``` simple.MatchDocument(web3.utils.asciiToHex('{CID do IPFS}')) ```
+
+#### Funções Publicas
+
+Retorna o documento e o status (assinado ou não)
+
+``` simple.GetDocument() ```
+
+Retorna informações do Signatário e se já assinou
+
+``` simple.GetSignedInfo() ```
+
+### Criar contrato com multiplos signatários
 
 ## Contribuition
 

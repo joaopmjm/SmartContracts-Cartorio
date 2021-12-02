@@ -10,10 +10,10 @@ creationDate: uint256 ## Data de criação do documento
 
 
 @external
-def __init__(signer: address ,documentHash: bytes32):
+def __init__(signer: address ,documentHash: Bytes[100]):
     self.owner = msg.sender
     self.signer = signer
-    self.document = documentHash
+    self.document = keccak256(documentHash)
     self.creationDate = block.timestamp
 
 @external
@@ -22,6 +22,11 @@ def sign():
     assert self.signed == False
     self.signedDate = block.timestamp
     self.signed = True
+
+@external
+@view
+def MatchDocument(_document: Bytes[100]) -> bool:
+    return keccak256(_document) == self.document 
 
 @external
 @view
