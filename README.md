@@ -7,63 +7,116 @@
 - Ganache
 ## Running
 
-#### Ganache must be opened
+***Ganache must be opened***
 
-``` $ truffle console --network development ```
 
-``` (development) compile ```
+```js
+$ truffle console --network development
 
-### Criar contrato simples:
 
-Inicia o contrato
+(development) compile 
+```
 
-``` let simple = await DocumentSignSimple.new({Endereço do signatario},web3.utils.asciiToHex('{CID do IPFS}'),{from:{Endereço do cartorio}}) ```
 
-Assinar (apenas o signarário consegue)
+### **Criar contrato simples:**
 
-``` simple.sign({from:{Endereço do signatario}}) ```
 
-Bater um CID com o guardado (qualquer um consegue)
+**Inicia o contrato**
 
-``` simple.MatchDocument(web3.utils.asciiToHex('{CID do IPFS}')) ```
 
-#### Funções Publicas
+```js
+let simple = await DocumentSignSimple.new({Endereço do signatario},web3.utils.asciiToHex('{CID do IPFS}'),{from:{Endereço do cartorio}}) 
+```
 
-Retorna o documento e o status (assinado ou não)
 
-``` simple.GetDocument() ```
+**Assinar (apenas o signarário consegue)**
 
-Retorna informações do Signatário e se já assinou
 
-``` simple.GetSignedInfo() ```
+```js
+simple.sign({from:{Endereço do signatario}}) 
+```
+
+
+**Bater um CID com o guardado (qualquer um consegue)**
+
+
+```js
+simple.MatchDocument(web3.utils.asciiToHex('{CID do IPFS}')) 
+```
+
+
+#### **Funções Publicas**
+
+
+**Retorna o documento e o status (assinado ou não)**
+
+
+```js
+simple.GetDocument() 
+```
+
+
+**Retorna informações do Signatário e se já assinou**
+
+
+```js
+simple.GetSignedInfo() 
+```
+
 
 ### Criar contrato com multiplos signatários
 
-Iniciar o contrato
 
-``` let complex = await DocumentSignMultiSigners.new({Endereço do signatario 1},web3.utils.asciiToHex('{CID do IPFS}'),{from:{Endereço do cartorio}}) ```
+**Iniciar o contrato**
 
-Adicionar novos signatários
 
-``` complex.AddSigner(accounts[2],{from:accounts[0]}) ```
+```js
+let complex = await DocumentSignMultiSigners.new({Endereço do signatario 1},web3.utils.asciiToHex('{CID do IPFS}'),{from:{Endereço do cartorio}}) 
+```
 
-Assinar
 
-``` complex.Sign({from: {Endereço do assinante}}) ```
+**Adicionar novos signatários**
 
-Certificar documento
 
-``` complex.MatchDocument(web3.utils.asciiToHex("{CID do documento que quer comparar}")) ```
+```js
+complex.AddSigner(accounts[2],{from:accounts[0]}) 
+```
 
-Buscar documento e o status (assinado ou não)
 
-``` complex.GetDocument() ```
+**Assinar**
 
-Buscar status da assinatura de alguém
 
-``` complex.GetSignatureStatus({endereço do signatário}) ```
+```js
+complex.Sign({from: {Endereço do assinante}}) 
+```
+
+
+**Certificar documento**
+
+
+```js
+complex.MatchDocument(web3.utils.asciiToHex("{CID do documento que quer comparar}")) 
+```
+
+
+**Buscar documento e o status (assinado ou não)**
+
+
+```js
+complex.GetDocument() 
+```
+
+
+**Buscar status da assinatura de alguém**
+
+
+```js
+complex.GetSignatureStatus({endereço do signatário}) 
+```
+
 
 ## Contribuition
+
 
 1. Create Branch
 2. Develop
@@ -72,7 +125,9 @@ Buscar status da assinatura de alguém
 5. Merge with master
 6. Delete branch
 
+
 ### Owners
+
 
 - Maulem
 - Mariana Borst
