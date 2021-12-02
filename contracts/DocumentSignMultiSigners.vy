@@ -32,7 +32,7 @@ def AddSigner(signer: address):
             signed : False,
             signDate: 0
         })
-    self.signers[self.nsigners] = msg.sender
+    self.signers[self.nsigners] = signer
     self.nsigners += 1
 
 

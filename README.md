@@ -9,9 +9,9 @@
 
 #### Ganache must be opened
 
-``` $ truffle develop ```
+``` $ truffle console --network development ```
 
-``` compile ```
+``` (development) compile ```
 
 ### Criar contrato simples:
 
@@ -38,6 +38,30 @@ Retorna informações do Signatário e se já assinou
 ``` simple.GetSignedInfo() ```
 
 ### Criar contrato com multiplos signatários
+
+Iniciar o contrato
+
+``` let complex = await DocumentSignMultiSigners.new({Endereço do signatario 1},web3.utils.asciiToHex('{CID do IPFS}'),{from:{Endereço do cartorio}}) ```
+
+Adicionar novos signatários
+
+``` complex.AddSigner(accounts[2],{from:accounts[0]}) ```
+
+Assinar
+
+``` complex.Sign({from: {Endereço do assinante}}) ```
+
+Certificar documento
+
+``` complex.MatchDocument(web3.utils.asciiToHex("{CID do documento que quer comparar}")) ```
+
+Buscar documento e o status (assinado ou não)
+
+``` complex.GetDocument() ```
+
+Buscar status da assinatura de alguém
+
+``` complex.GetSignatureStatus({endereço do signatário}) ```
 
 ## Contribuition
 
