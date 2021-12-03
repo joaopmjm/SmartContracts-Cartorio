@@ -54,7 +54,7 @@ Vamos iniciar demonstrando o contrato simples com 1 signatário, lembrando, o am
 
 ```js
 // Iniciar contrato com o numero 2 como assinantes
-> let complexContract = await DocumentSignMultiSigners.new.new(accounts[2], web3.utils.asciiToHex("CID do IPFS"),{from: accounts[0]})
+> let complexContract = await DocumentSignMultiSigners.new(accounts[2], web3.utils.asciiToHex("CID do IPFS"),{from: accounts[0]})
 
 // Checar contrato não assinado
 > complexContract.GetDocument()
