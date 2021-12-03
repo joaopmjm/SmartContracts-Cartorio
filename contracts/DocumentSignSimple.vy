@@ -17,7 +17,7 @@ def __init__(signer: address ,documentHash: Bytes[100]):
     self.creationDate = block.timestamp
 
 @external
-def sign():
+def Sign():
     assert self.signer == msg.sender
     assert self.signed == False
     self.signedDate = block.timestamp
