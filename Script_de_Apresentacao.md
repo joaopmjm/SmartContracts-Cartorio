@@ -47,3 +47,46 @@ Vamos iniciar demonstrando o contrato simples com 1 signatário, lembrando, o am
 // Output: O endereço do assinante e o status TRUE
 
 ```
+
+### ***Fim do contrato simples***
+
+## Script contrato complexo
+
+```js
+// Iniciar contrato com o numero 2 como assinantes
+> let complexContract = await DocumentSignMultiSigners.new.new(accounts[2], web3.utils.asciiToHex("QmZLf3YN6aetfeckzYaodUzYaJU5upF8cMpvVVUPf7hQVa"),{from: accounts[0]})
+
+// Checar contrato não assinado
+> complexContract.GetDocument()
+// Output: false
+
+// Adicionar mais 2 assinantes, para adicionar precisa ser quem criou
+> complexContract.AddSigner(accounts[3],{from:accounts[0]})
+> complexContract.AddSigner(accounts[4],{from:accounts[0]})
+
+// Checar status dos assinantes
+> complexContract.GetSignatureStatus(accounts[2])
+> complexContract.GetSignatureStatus(accounts[3])
+> complexContract.GetSignatureStatus(accounts[4])
+// Output: False (para os 3)
+
+// 1 Assinatura
+> complexContract.Sign({from: accounts[3]})
+> complexContract.GetSignatureStatus(accounts[3])
+// Output: True
+
+// Checar status do Contrato
+> complexContract.GetDocument()
+// Output false
+
+// Todos os outros assinam
+> complexContract.Sign({from: accounts[2]})
+> complexContract.Sign({from: accounts[4]})
+
+// Checar status do Contrato
+> complexContract.GetDocument()
+// Output: true
+
+```
+
+### *** Fim do contrato Complexo ***
