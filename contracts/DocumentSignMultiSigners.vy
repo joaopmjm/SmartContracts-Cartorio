@@ -1,3 +1,4 @@
+# @version >=0.1.0-beta.16
 # Smart Contract Document Assurence v1.0.1
 
 struct signature:

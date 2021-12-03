@@ -1,3 +1,4 @@
+# @version >=0.1.0-beta.16
 # Smart Contract Document Assurence v1.0.0
 
 document: bytes32 ## Hash do documento
@@ -25,8 +26,8 @@ def Sign():
 
 @external
 @view
-def MatchDocument(_document: Bytes[100]) -> bool:
-    return keccak256(_document) == self.document 
+def MatchDocument(document: Bytes[100]) -> bool:
+    return keccak256(document) == self.document 
 
 @external
 @view
