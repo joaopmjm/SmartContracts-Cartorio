@@ -89,4 +89,4 @@ Vamos iniciar demonstrando o contrato simples com 1 signatário, lembrando, o am
 
 ```
 
-### *** Fim do contrato Complexo ***
+### ***Fim do contrato Complexo***
