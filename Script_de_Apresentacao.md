@@ -17,7 +17,7 @@ Vamos iniciar demonstrando o contrato simples com 1 signatário, lembrando, o am
 
 ```js
 // Criação do contrato
-> let simpleContract = await DocumentSignSimple.new(accounts[1],web3.utils.asciiToHex("QmZLf3YN6aetfeckzYaodUzYaJU5upF8cMpvVVUPf7hQVa"),{from:accounts[0]})
+> let simpleContract = await DocumentSignSimple.new(accounts[1],web3.utils.asciiToHex("{CID do IPFS}"),{from:accounts[0]})
 
 // Checar Status do contrato, mostrando que não está assinado, nem que o status da assinatura do signatário está "false"
 > simpleContract.GetDocument()
@@ -26,10 +26,10 @@ Vamos iniciar demonstrando o contrato simples com 1 signatário, lembrando, o am
 // Output: O endereço do assinante e o status FALSE
 // Testar o Matching Document
 // Documento diferente
-> simpleContract.MatchDocument(web3.utils.asciiToHex("QmWjr5NMLTVaoqEfCUFoioZVsvM2b5fgwoz6dL2nDRxy7t"))
+> simpleContract.MatchDocument(web3.utils.asciiToHex("CID do IPFS do errado"))
 // Output: false
 // Documento correto
-> simpleContract.MatchDocument(web3.utils.asciiToHex("QmZLf3YN6aetfeckzYaodUzYaJU5upF8cMpvVVUPf7hQVa"))
+> simpleContract.MatchDocument(web3.utils.asciiToHex("CID do IPFS"))
 // Output: true
 
 // Assinar o contrato com a pessoa incorreta
@@ -54,7 +54,7 @@ Vamos iniciar demonstrando o contrato simples com 1 signatário, lembrando, o am
 
 ```js
 // Iniciar contrato com o numero 2 como assinantes
-> let complexContract = await DocumentSignMultiSigners.new.new(accounts[2], web3.utils.asciiToHex("QmZLf3YN6aetfeckzYaodUzYaJU5upF8cMpvVVUPf7hQVa"),{from: accounts[0]})
+> let complexContract = await DocumentSignMultiSigners.new.new(accounts[2], web3.utils.asciiToHex("CID do IPFS"),{from: accounts[0]})
 
 // Checar contrato não assinado
 > complexContract.GetDocument()
